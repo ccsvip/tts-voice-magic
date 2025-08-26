@@ -12,7 +12,7 @@ const HTML_PAGE = `
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>一只会飞的旺旺 - 让文字开口说话的神器</title>
+    <title>纯二</title>
     <meta name="description" content="声音魔法师，一键将文字转换为自然流畅的语音，支持20+种中文声音，免费在线使用，让你的内容更生动有趣！">
     <meta name="keywords" content="文字转语音,AI语音合成,在线TTS,语音生成器,免费语音工具">
     <style>
@@ -37,13 +37,13 @@ const HTML_PAGE = `
             --radius-lg: 12px;
             --radius-xl: 16px;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background-color: var(--background-color);
@@ -51,13 +51,13 @@ const HTML_PAGE = `
             line-height: 1.6;
             min-height: 100vh;
         }
-        
+
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         .header {
             background: var(--surface-color);
             border-radius: var(--radius-xl);
@@ -67,7 +67,7 @@ const HTML_PAGE = `
             margin-bottom: 30px;
             border: 1px solid var(--border-color);
         }
-        
+
         .header h1 {
             font-size: 2.5rem;
             font-weight: 800;
@@ -75,14 +75,14 @@ const HTML_PAGE = `
             margin-bottom: 12px;
             letter-spacing: -0.025em;
         }
-        
+
         .header .subtitle {
             font-size: 1.125rem;
             color: var(--text-secondary);
             margin-bottom: 20px;
             font-weight: 500;
         }
-        
+
         .header .features {
             display: flex;
             justify-content: center;
@@ -90,7 +90,7 @@ const HTML_PAGE = `
             flex-wrap: wrap;
             margin-top: 20px;
         }
-        
+
         .feature-item {
             display: flex;
             align-items: center;
@@ -99,13 +99,13 @@ const HTML_PAGE = `
             font-size: 0.875rem;
             font-weight: 500;
         }
-        
+
         .feature-icon {
             width: 20px;
             height: 20px;
             color: var(--success-color);
         }
-        
+
         .main-content {
             background: var(--surface-color);
             border-radius: var(--radius-xl);
@@ -113,15 +113,15 @@ const HTML_PAGE = `
             border: 1px solid var(--border-color);
             overflow: hidden;
         }
-        
+
         .form-container {
             padding: 40px;
         }
-        
+
         .form-group {
             margin-bottom: 24px;
         }
-        
+
         .form-label {
             display: block;
             margin-bottom: 8px;
@@ -129,7 +129,7 @@ const HTML_PAGE = `
             color: var(--text-primary);
             font-size: 0.875rem;
         }
-        
+
         .form-input, .form-select, .form-textarea {
             width: 100%;
             padding: 12px 16px;
@@ -140,26 +140,26 @@ const HTML_PAGE = `
             background: var(--surface-color);
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         .form-input:focus, .form-select:focus, .form-textarea:focus {
             outline: none;
             border-color: var(--border-focus);
             box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
         }
-        
+
         .form-textarea {
             min-height: 120px;
             resize: vertical;
             font-family: inherit;
         }
-        
+
         .controls-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
             margin-bottom: 32px;
         }
-        
+
         .btn-primary {
             width: 100%;
             background: var(--primary-color);
@@ -176,19 +176,19 @@ const HTML_PAGE = `
             justify-content: center;
             gap: 8px;
         }
-        
+
         .btn-primary:hover:not(:disabled) {
             background: var(--primary-hover);
             transform: translateY(-1px);
             box-shadow: var(--shadow-md);
         }
-        
+
         .btn-primary:disabled {
             opacity: 0.6;
             cursor: not-allowed;
             transform: none;
         }
-        
+
         .btn-secondary {
             background: var(--success-color);
             color: white;
@@ -203,12 +203,12 @@ const HTML_PAGE = `
             font-weight: 500;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         .btn-secondary:hover {
             background: #047857;
             transform: translateY(-1px);
         }
-        
+
         .result-container {
             margin-top: 32px;
             padding: 24px;
@@ -217,13 +217,13 @@ const HTML_PAGE = `
             border: 1px solid var(--border-color);
             display: none;
         }
-        
+
         .audio-player {
             width: 100%;
             margin-bottom: 16px;
             border-radius: var(--radius-md);
         }
-        
+
         .error-message {
             color: var(--error-color);
             background: #fef2f2;
@@ -233,12 +233,12 @@ const HTML_PAGE = `
             margin-top: 16px;
             font-weight: 500;
         }
-        
+
         .loading-container {
             text-align: center;
             padding: 32px 20px;
         }
-        
+
         .loading-spinner {
             width: 40px;
             height: 40px;
@@ -248,61 +248,61 @@ const HTML_PAGE = `
             animation: spin 1s linear infinite;
             margin: 0 auto 16px;
         }
-        
+
         .loading-text {
             color: var(--text-secondary);
             font-weight: 500;
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
+
         .fade-in {
             animation: fadeIn 0.3s ease-out;
         }
-        
+
         @media (max-width: 768px) {
             .container {
                 padding: 16px;
             }
-            
+
             .header {
                 padding: 30px 20px;
             }
-            
+
             .header h1 {
                 font-size: 2rem;
             }
-            
+
             .form-container {
                 padding: 24px;
             }
-            
+
             .controls-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
             }
-            
-            
+
+
         }
     </style>
 </head>
@@ -330,7 +330,7 @@ const HTML_PAGE = `
                 </div>
             </div>
         </div>
-        
+
         <div class="main-content">
             <div class="form-container">
                 <form id="ttsForm">
@@ -338,7 +338,7 @@ const HTML_PAGE = `
                         <label class="form-label" for="text">输入文本</label>
                         <textarea class="form-textarea" id="text" placeholder="请输入要转换为语音的文本内容，支持中文、英文、数字等..." required></textarea>
                     </div>
-                
+
                     <div class="controls-grid">
                         <div class="form-group">
                             <label class="form-label" for="voice">语音选择</label>
@@ -366,7 +366,7 @@ const HTML_PAGE = `
                                 <option value="zh-CN-YunzeNeural">云泽 (男声·深沉)</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label class="form-label" for="speed">语速调节</label>
                             <select class="form-select" id="speed">
@@ -378,7 +378,7 @@ const HTML_PAGE = `
                                 <option value="2.0">💨 极速</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label class="form-label" for="pitch">音调高低</label>
                             <select class="form-select" id="pitch">
@@ -389,7 +389,7 @@ const HTML_PAGE = `
                                 <option value="50">🎶 很高亢</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label class="form-label" for="style">语音风格</label>
                             <select class="form-select" id="style">
@@ -407,50 +407,50 @@ const HTML_PAGE = `
                             </select>
                         </div>
                     </div>
-                    
+
                     <button type="submit" class="btn-primary" id="generateBtn">
                         <span>🎙️</span>
                         <span>开始生成语音</span>
                     </button>
             </form>
-            
+
                 <div id="result" class="result-container">
                     <div id="loading" class="loading-container" style="display: none;">
                         <div class="loading-spinner"></div>
                         <p class="loading-text">正在生成语音，请稍候...</p>
                     </div>
-                    
+
                     <div id="success" style="display: none;">
                         <audio id="audioPlayer" class="audio-player" controls></audio>
-                        <a id="downloadBtn" class="btn-secondary" download="speech.mp3">
+                        <a id="downloadBtn" class="btn-secondary" download="speech.wav">
                             <span>📥</span>
                             <span>下载音频文件</span>
                         </a>
                     </div>
-                    
+
                     <div id="error" class="error-message" style="display: none;"></div>
                 </div>
             </div>
         </div>
-        
+
     </div>
 
     <script>
         document.getElementById('ttsForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+
             const text = document.getElementById('text').value;
             const voice = document.getElementById('voice').value;
             const speed = document.getElementById('speed').value;
             const pitch = document.getElementById('pitch').value;
             const style = document.getElementById('style').value;
-            
+
             const generateBtn = document.getElementById('generateBtn');
             const resultContainer = document.getElementById('result');
             const loading = document.getElementById('loading');
             const success = document.getElementById('success');
             const error = document.getElementById('error');
-            
+
             // 重置状态
             resultContainer.style.display = 'block';
             loading.style.display = 'block';
@@ -458,7 +458,7 @@ const HTML_PAGE = `
             error.style.display = 'none';
             generateBtn.disabled = true;
             generateBtn.textContent = '生成中...';
-            
+
             try {
                 const response = await fetch('/v1/audio/speech', {
                     method: 'POST',
@@ -473,26 +473,26 @@ const HTML_PAGE = `
                         style: style
                     })
                 });
-                
+
                 if (!response.ok) {
                     const errorData = await response.json();
                     throw new Error(errorData.error?.message || '生成失败');
                 }
-                
+
                 const audioBlob = await response.blob();
                 const audioUrl = URL.createObjectURL(audioBlob);
-                
+
                 // 显示音频播放器
                 const audioPlayer = document.getElementById('audioPlayer');
                 const downloadBtn = document.getElementById('downloadBtn');
-                
+
                 audioPlayer.src = audioUrl;
                 downloadBtn.href = audioUrl;
-                
+
                 loading.style.display = 'none';
                 success.style.display = 'block';
-                
-                
+
+
             } catch (err) {
                 loading.style.display = 'none';
                 error.style.display = 'block';
@@ -556,7 +556,7 @@ async function handleRequest(request) {
                 numPitch >= 0 ? `+${numPitch}Hz` : `${numPitch}Hz`,
                 numVolume >= 0 ? `+${numVolume}%` : `${numVolume}%`,
                 style,
-                "audio-24khz-48kbitrate-mono-mp3"
+                "riff-16khz-16bit-mono-pcm"
             );
 
             return response;
@@ -630,10 +630,10 @@ async function getVoice(text, voiceName = "zh-CN-XiaoxiaoNeural", rate = '+0%', 
 
 
         // 将音频片段拼接起来
-        const concatenatedAudio = new Blob(audioChunks, { type: 'audio/mpeg' });
+        const concatenatedAudio = new Blob(audioChunks, { type: 'audio/wav' });
         const response = new Response(concatenatedAudio, {
             headers: {
-                "Content-Type": "audio/mpeg",
+                "Content-Type": "audio/wav",
                 ...makeCORSHeaders()
             }
         });
@@ -698,13 +698,13 @@ function getSsml(text, voiceName, rate, pitch, volume, style, slien = 0) {
     if (slien > 0) {
         slien_str = `<break time="${slien}ms" />`
     }
-    return `<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" version="1.0" xml:lang="zh-CN"> 
-                <voice name="${voiceName}"> 
-                    <mstts:express-as style="${style}"  styledegree="2.0" role="default" > 
-                        <prosody rate="${rate}" pitch="${pitch}" volume="${volume}">${text}</prosody> 
-                    </mstts:express-as> 
+    return `<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" version="1.0" xml:lang="zh-CN">
+                <voice name="${voiceName}">
+                    <mstts:express-as style="${style}"  styledegree="2.0" role="default" >
+                        <prosody rate="${rate}" pitch="${pitch}" volume="${volume}">${text}</prosody>
+                    </mstts:express-as>
                     ${slien_str}
-                </voice> 
+                </voice>
             </speak>`;
 
 }
@@ -820,4 +820,3 @@ function dateFormat() {
     const formattedDate = (new Date()).toUTCString().replace(/GMT/, "").trim() + " GMT";
     return formattedDate.toLowerCase();
 }
-
